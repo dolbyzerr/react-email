@@ -4261,10 +4261,10 @@ makeerror@1.0.12:
   dependencies:
     tmpl "1.0.5"
 
-md-to-react-email@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/md-to-react-email/-/md-to-react-email-1.2.0.tgz#3c6bac43cc23d60919523de0e932927e3ec407a0"
-  integrity sha512-RAVVLDIOm1jxQtIuNAUFmhn1zBrrPiBBFBOULNHPX8bhX87Y4Jgsb/R/5Fy6ZXEpXFLtP7lpfHXDSVaR60ZT7w==
+md-to-react-email@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/md-to-react-email/-/md-to-react-email-2.0.1.tgz#ce83a7351672ad0364805a0141742a0f409aff31"
+  integrity sha512-X1BYy91p/vsJuZgVXI26H+Zp+DIu5E0EWtW2EjIN5shKSmXCda71TG4dzTZAU+Ef4t9tDR/VsTP0MjL8ZwzU1A==
 
 merge-stream@^2.0.0:
   version "2.0.0"
