@@ -5,18 +5,33 @@ import pretty from "pretty";
 export interface Options {
   pretty?: boolean;
   plainText?: boolean;
+  html?: {
+    doctype?: boolean;
+  };
 }
-
-export const render = (component: React.ReactElement, options?: Options) => {
-  if (options?.plainText) {
+const defaultOptions: Options = {
+  pretty: false,
+  plainText: false,
+  html: {
+    doctype: true,
+  },
+};
+export const render = (
+  component: React.ReactElement,
+  options: Options = defaultOptions
+) => {
+  if (options.plainText) {
     return renderAsPlainText(component, options);
   }
-  const doctype =
-    '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
   const markup = ReactDomServer.renderToStaticMarkup(component);
-  const document = `${doctype}${markup}`;
+  let document = markup;
+  if (options.html?.doctype) {
+    const doctype =
+      '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
+    document = `${doctype}${markup}`;
+  }
 
-  if (options && options.pretty) {
+  if (options.pretty) {
     return pretty(document);
   }
 
