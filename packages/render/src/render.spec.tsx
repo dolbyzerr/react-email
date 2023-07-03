@@ -38,9 +38,7 @@ describe("render", () => {
 
   it("renders without a doctype", () => {
     const actualOutput = render(<Template firstName="Jim" />, {
-      html: {
-        doctype: false,
-      },
+      doctype: false,
     });
     expect(actualOutput).toMatchInlineSnapshot(
       `"<h1>Welcome, Jim!</h1><img src=\\"img/test.png\\" alt=\\"test\\"/><p>Thanks for trying our product. We&#x27;re thrilled to have you on board!</p>"`

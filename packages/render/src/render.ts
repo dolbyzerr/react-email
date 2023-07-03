@@ -5,16 +5,12 @@ import pretty from "pretty";
 export interface Options {
   pretty?: boolean;
   plainText?: boolean;
-  html?: {
-    doctype?: boolean;
-  };
+  doctype?: boolean;
 }
 const defaultOptions: Options = {
   pretty: false,
   plainText: false,
-  html: {
-    doctype: true,
-  },
+  doctype: true,
 };
 export const render = (
   component: React.ReactElement,
@@ -25,7 +21,7 @@ export const render = (
   }
   const markup = ReactDomServer.renderToStaticMarkup(component);
   let document = markup;
-  if (options.html?.doctype) {
+  if (options.doctype) {
     const doctype =
       '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
     document = `${doctype}${markup}`;
